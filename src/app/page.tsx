@@ -126,7 +126,7 @@ export default function LandingPage() {
           <div className="font-display text-2xl font-bold text-primary tracking-tight">Serreva <span className="font-normal text-text-muted">Glasshouses</span></div>
           <div className="flex items-center gap-4">
             <a href={PHONE_HREF} className="hidden sm:flex items-center border-2 border-primary text-primary px-4 py-2 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all text-sm">{PHONE}</a>
-            <a href="#hero-form" className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all">Get Proposal</a>
+            <a href="#hero-form" className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-all">Request Proposal</a>
           </div>
         </div>
       </header>
@@ -415,7 +415,7 @@ export default function LandingPage() {
 
       {/* Floating CTA */}
       <div className={`fixed bottom-6 right-6 z-40 flex flex-col gap-3 transition-all duration-500 ${showFloating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"}`}>
-        <a href="#contact" className="bg-secondary text-white px-6 py-4 rounded-full font-semibold shadow-lg hover:bg-secondary/90 transition-all text-center">Get Proposal</a>
+        <a href="#contact" className="bg-secondary text-white px-6 py-4 rounded-full font-semibold shadow-lg hover:bg-secondary/90 transition-all text-center">Request Proposal</a>
         <a href={PHONE_HREF} className="bg-primary text-white px-6 py-4 rounded-full font-semibold shadow-lg hover:bg-primary/90 transition-all text-center">{PHONE}</a>
       </div>
     </>
