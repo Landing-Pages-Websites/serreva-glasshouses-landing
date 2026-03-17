@@ -298,7 +298,7 @@ export default function LandingPage() {
         {/* Background image overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/images/project-3.png"
+            src="/images/venue-2.jpg"
             alt="Serreva luxury glasshouse"
             fill
             className="object-cover opacity-20"
@@ -404,6 +404,13 @@ export default function LandingPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="text-center mt-10">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
+                Start Your Project
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -500,6 +507,14 @@ export default function LandingPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="text-center mt-10">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+                Request Your Bespoke Proposal
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -738,6 +753,14 @@ export default function LandingPage() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <div className="text-center mt-12">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+                Start the Conversation
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -787,6 +810,13 @@ export default function LandingPage() {
               </div>
             </div>
           </Reveal>
+          <Reveal>
+            <div className="text-center mt-10">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
+                Request Your Bespoke Proposal
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -798,7 +828,7 @@ export default function LandingPage() {
               <div className="relative">
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/images/venue-2.jpg"
+                    src="/images/hotel-1.jpg"
                     alt="Serreva hospitality installation"
                     width={600}
                     height={480}
@@ -851,6 +881,14 @@ export default function LandingPage() {
               </div>
             </Reveal>
           </div>
+          <Reveal>
+            <div className="text-center mt-12">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+                Request a Custom Proposal
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 

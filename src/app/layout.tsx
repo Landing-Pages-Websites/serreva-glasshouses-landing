@@ -37,10 +37,10 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.MEGA_TAG_CONFIG={siteKey:"sk_6931f04e_f6fe749c348c"};window.API_ENDPOINT="https://optimizer.gomega.ai";window.TRACKING_API_ENDPOINT="https://events-api.gomega.ai";`,
+            __html: `window.MEGA_TAG_CONFIG={siteKey:"sk_6931f04e_f6fe749c348c"};`,
           }}
         />
-        <script src="https://cdn.gomega.ai/scripts/optimizer.min.js" async />
+        <script id="optimizer-script" src="https://cdn.gomega.ai/scripts/optimizer.min.js" async />
         <Script src="https://572388.tctm.co/t.js" strategy="afterInteractive" />
       </head>
       <body className={`${dmSans.className} antialiased`}>{children}</body>
