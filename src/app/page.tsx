@@ -224,11 +224,14 @@ export default function LandingPage() {
 
   const [floatingVisible, setFloatingVisible] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setFloatingVisible(window.scrollY > 900);
       setHeaderScrolled(window.scrollY > 60);
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -237,6 +240,12 @@ export default function LandingPage() {
   return (
     <>
       <QueryParamPersistence />
+
+      {/* ── SCROLL PROGRESS BAR ───────────────────────────────── */}
+      <div
+        className="fixed top-0 left-0 z-[100] h-1 bg-[#c9a64a] transition-none"
+        style={{ width: `${scrollProgress}%` }}
+      />
 
       {/* ── HEADER ────────────────────────────────────────────── */}
       <header
@@ -409,6 +418,11 @@ export default function LandingPage() {
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
                 Start Your Project
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -513,6 +527,11 @@ export default function LandingPage() {
                 Request Your Bespoke Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -624,6 +643,11 @@ export default function LandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -651,12 +675,17 @@ export default function LandingPage() {
                   means nothing if guests are uncomfortable. Every Serreva structure includes a fully integrated
                   climate control system — custom-designed for your location and use case.
                 </p>
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#e8c97a] transition-all"
-                >
-                  Get a Custom Climate Assessment
-                </a>
+                <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#e8c97a] transition-all"
+                  >
+                    Get a Custom Climate Assessment
+                  </a>
+                  <a href={PHONE_HREF} className="inline-flex items-center self-center text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                    or call {PHONE}
+                  </a>
+                </div>
               </div>
             </Reveal>
 
@@ -759,6 +788,11 @@ export default function LandingPage() {
                 Start the Conversation
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -810,11 +844,66 @@ export default function LandingPage() {
               </div>
             </div>
           </Reveal>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            <Reveal delay={100}>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#c9a64a]/30 transition-all">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="text-white/80 text-base leading-relaxed mb-6 italic">
+                  &ldquo;The glasshouse Serreva delivered for our rooftop restaurant is simply breathtaking. Guests ask about it constantly — it has become the defining feature of our property. The climate integration is flawless; we operate year-round in what was previously an unusable space.&rdquo;
+                </blockquote>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#c9a64a]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#c9a64a] font-display font-bold">G</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">General Manager</p>
+                    <p className="text-white/50 text-xs">Five-Star Hotel — Middle East</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={200}>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#c9a64a]/30 transition-all">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-4 h-4 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote className="text-white/80 text-base leading-relaxed mb-6 italic">
+                  &ldquo;We had complex site constraints and an aggressive timeline. Serreva navigated both with remarkable professionalism. Their single-team model — design, engineering, and build under one roof — eliminated the coordination problems we had experienced with other contractors. Delivered on time, on budget, and beyond expectation.&rdquo;
+                </blockquote>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#c9a64a]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#c9a64a] font-display font-bold">D</span>
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">Director of Development</p>
+                    <p className="text-white/50 text-xs">Boutique Resort Group — Asia Pacific</p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
           <Reveal>
             <div className="text-center mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
                 Request Your Bespoke Proposal
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -887,6 +976,11 @@ export default function LandingPage() {
                 Request a Custom Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
+              <div className="mt-3">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                  or call {PHONE}
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -971,6 +1065,11 @@ export default function LandingPage() {
           <p className="text-white/30 text-xs">
             &copy; {new Date().getFullYear()} Serreva Glasshouses. All rights reserved.
           </p>
+          <div className="mt-2">
+            <a href="/privacy-policy" className="text-white/30 text-xs hover:text-white/60 transition-colors underline underline-offset-2">
+              Privacy Policy
+            </a>
+          </div>
         </div>
       </footer>
 
@@ -980,16 +1079,28 @@ export default function LandingPage() {
           floatingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
         }`}
       >
-        <a
-          href="#contact"
-          className="flex items-center gap-3 bg-[#1a2640] text-white px-7 py-3.5 rounded-full shadow-2xl font-semibold text-sm hover:bg-[#243354] transition-all border border-white/10 whitespace-nowrap"
-        >
-          <span className="w-2 h-2 rounded-full bg-[#c9a64a] animate-pulse" />
-          Request Your Bespoke Proposal
-          <svg className="w-4 h-4 text-[#c9a64a]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-          </svg>
-        </a>
+        <div className="flex items-center gap-2 bg-[#1a2640] rounded-full shadow-2xl border border-white/10 px-2 py-2">
+          <a
+            href="#contact"
+            className="flex items-center gap-3 text-white px-5 py-2 rounded-full font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#c9a64a] animate-pulse" />
+            Request Your Bespoke Proposal
+            <svg className="w-4 h-4 text-[#c9a64a]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <div className="w-px h-5 bg-white/20" />
+          <a
+            href={PHONE_HREF}
+            className="flex items-center gap-2 text-[#c9a64a] px-4 py-2 rounded-full font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
+            </svg>
+            {PHONE}
+          </a>
+        </div>
       </div>
     </>
   );
