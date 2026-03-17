@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 const CONFIG = {
   CUSTOMER_ID: "50f812f9-d269-4ebd-a6b8-d81e22636f0f",
-  SITE_ID: "SITE_ID_PLACEHOLDER",
+  SITE_ID: "03960c4f-3946-4ff5-aab0-50ecda927206",
   SOURCE_PROVIDER: "serreva-glasshouses-hospitality-landing",
   ENDPOINT: "https://analytics.gomega.ai/submission/submit",
 };

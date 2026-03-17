@@ -220,7 +220,7 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
 }
 
 export default function LandingPage() {
-  useTracking({ siteKey: "sk_placeholder" });
+  useTracking({ siteKey: "sk_6931f04e_f6fe749c348c" });
 
   const [floatingVisible, setFloatingVisible] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
