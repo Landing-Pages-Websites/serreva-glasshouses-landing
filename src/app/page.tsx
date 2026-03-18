@@ -52,7 +52,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [target]);
 
   return (
-    <div ref={ref} className="font-display text-5xl md:text-6xl font-bold text-[#c9a64a]">
+    <div ref={ref} className="font-display text-5xl md:text-6xl font-bold text-[#A9C8CD]">
       {count}
       {suffix}
     </div>
@@ -92,22 +92,22 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
   };
 
   const cardBg = dark
-    ? "bg-[#0f1a2e]/90 border border-white/10"
-    : "bg-white border border-[#e5e0d8]";
-  const labelColor = dark ? "text-white" : "text-[#1a2640]";
+    ? "bg-[#133B43]/90 border border-white/10"
+    : "bg-white border border-[#d1cbc1]";
+  const labelColor = dark ? "text-white" : "text-[#133B43]";
   const inputBg = dark
-    ? "bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-[#c9a64a]"
-    : "bg-white border-[#d1cbc1] text-[#1a2640] placeholder-[#9ca3af] focus:border-[#c9a64a]";
+    ? "bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-[#A9C8CD]"
+    : "bg-white border-[#d1cbc1] text-[#133B43] placeholder-[#9ca3af] focus:border-[#A9C8CD]";
 
   if (submitted) {
     return (
       <div className={`rounded-2xl p-8 shadow-2xl ${cardBg} text-center`}>
-        <div className="w-16 h-16 bg-[#c9a64a]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-[#c9a64a]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+        <div className="w-16 h-16 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-[#A9C8CD]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h4 className={`font-display text-2xl font-bold mb-2 ${dark ? "text-white" : "text-[#1a2640]"}`}>
+        <h4 className={`font-display text-2xl font-bold mb-2 ${dark ? "text-white" : "text-[#133B43]"}`}>
           Proposal Request Received
         </h4>
         <p className={dark ? "text-white/70" : "text-[#6b7280]"}>
@@ -119,7 +119,7 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
 
   return (
     <form id={id} onSubmit={handleSubmit} className={`rounded-2xl p-8 shadow-2xl ${cardBg}`}>
-      <h3 className={`font-display text-2xl font-bold mb-1 ${dark ? "text-white" : "text-[#1a2640]"}`}>
+      <h3 className={`font-display text-2xl font-bold mb-1 ${dark ? "text-white" : "text-[#133B43]"}`}>
         Request Your Proposal
       </h3>
       <p className={`text-sm mb-6 ${dark ? "text-white/60" : "text-[#6b7280]"}`}>
@@ -208,7 +208,7 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#1a2640] text-white font-bold py-4 rounded-lg text-base hover:bg-[#243354] transition-all disabled:opacity-50 mb-3 tracking-wide"
+        className="w-full bg-[#133B43] text-white font-bold py-4 rounded-lg text-base hover:bg-[#1a4f59] transition-all disabled:opacity-50 mb-3 tracking-wide"
       >
         {isSubmitting ? "Submitting..." : "Request Your Bespoke Proposal"}
       </button>
@@ -243,7 +243,7 @@ export default function LandingPage() {
 
       {/* ── SCROLL PROGRESS BAR ───────────────────────────────── */}
       <div
-        className="fixed top-0 left-0 z-[100] h-1 bg-[#c9a64a] transition-none"
+        className="fixed top-0 left-0 z-[100] h-1 bg-[#A9C8CD] transition-none"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -251,7 +251,7 @@ export default function LandingPage() {
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           headerScrolled
-            ? "bg-[#f8f6f1]/95 backdrop-blur-md border-b border-[#e5e0d8] shadow-sm"
+            ? "bg-[#F0ECE8]/95 backdrop-blur-md border-b border-[#d1cbc1] shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -266,7 +266,7 @@ export default function LandingPage() {
             />
             <span
               className={`font-display font-bold text-lg tracking-tight ${
-                headerScrolled ? "text-[#1a2640]" : "text-white"
+                headerScrolled ? "text-[#133B43]" : "text-white"
               }`}
             >
               Serreva <span className="font-normal opacity-70">Glasshouses</span>
@@ -277,8 +277,8 @@ export default function LandingPage() {
               href={PHONE_HREF}
               className={`hidden sm:flex items-center gap-2 border-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all ${
                 headerScrolled
-                  ? "border-[#1a2640] text-[#1a2640] hover:bg-[#1a2640] hover:text-white"
-                  : "border-white text-white hover:bg-white hover:text-[#1a2640]"
+                  ? "border-[#133B43] text-[#133B43] hover:bg-[#133B43] hover:text-white"
+                  : "border-white text-white hover:bg-white hover:text-[#133B43]"
               }`}
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -288,7 +288,7 @@ export default function LandingPage() {
             </a>
             <a
               href="#contact"
-              className="bg-[#c9a64a] text-[#1a2640] px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md"
+              className="bg-[#A9C8CD] text-[#133B43] px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-[#c3dce0] transition-all shadow-md"
             >
               Get Proposal
             </a>
@@ -301,7 +301,7 @@ export default function LandingPage() {
         id="hero"
         className="relative min-h-screen flex items-center"
         style={{
-          background: "linear-gradient(135deg, #0f1a2e 0%, #1a2640 50%, #0e2233 100%)",
+          background: "linear-gradient(135deg, #133B43 0%, #133B43 50%, #0e2e34 100%)",
         }}
       >
         {/* Background image overlay */}
@@ -313,16 +313,16 @@ export default function LandingPage() {
             className="object-cover opacity-20"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f1a2e]/90 via-[#0f1a2e]/70 to-[#0f1a2e]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#133B43]/90 via-[#133B43]/70 to-[#133B43]/30" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full pt-24 pb-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Copy */}
             <div>
-              <div className="inline-flex items-center gap-2 border border-[#c9a64a]/40 bg-[#c9a64a]/10 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 rounded-full bg-[#c9a64a]" />
-                <span className="text-[#c9a64a] text-xs font-semibold tracking-widest uppercase">
+              <div className="inline-flex items-center gap-2 border border-[#A9C8CD]/40 bg-[#A9C8CD]/10 rounded-full px-4 py-1.5 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#A9C8CD]" />
+                <span className="text-[#A9C8CD] text-xs font-semibold tracking-widest uppercase">
                   Luxury Hospitality Structures
                 </span>
               </div>
@@ -330,7 +330,7 @@ export default function LandingPage() {
               <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
                 Bespoke Glass<br />
                 Structures for<br />
-                <span className="text-[#c9a64a]">World&#8209;Class</span><br />
+                <span className="text-[#A9C8CD]">World&#8209;Class</span><br />
                 Venues
               </h1>
 
@@ -342,7 +342,7 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#e8c97a] transition-all shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#c3dce0] transition-all shadow-lg"
                 >
                   Request Your Proposal
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -362,19 +362,19 @@ export default function LandingPage() {
 
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#c9a64a]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-white/70 text-sm">10+ Years Experience</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#c9a64a]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-white/70 text-sm">Turnkey Delivery</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#c9a64a]" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-white/70 text-sm">4 Continents</span>
@@ -398,7 +398,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── STATS BAR ─────────────────────────────────────────── */}
-      <section id="stats" className="bg-[#1a2640] py-12">
+      <section id="stats" className="bg-[#133B43] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -415,11 +415,11 @@ export default function LandingPage() {
           </div>
           <Reveal>
             <div className="text-center mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#c3dce0] transition-all shadow-md">
                 Start Your Project
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -429,12 +429,12 @@ export default function LandingPage() {
       </section>
 
       {/* ── PROJECT SHOWCASE ──────────────────────────────────── */}
-      <section id="portfolio" className="py-20 bg-[#f8f6f1]">
+      <section id="portfolio" className="py-20 bg-[#F0ECE8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-14">
-              <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">Hospitality Portfolio</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1a2640] mt-3 mb-4">
+              <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">Hospitality Portfolio</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#133B43] mt-3 mb-4">
                 Built for Landmark Properties
               </h2>
               <p className="text-[#6b7280] text-lg max-w-2xl mx-auto">
@@ -466,7 +466,7 @@ export default function LandingPage() {
               },
             ].map((project, i) => (
               <Reveal key={i} delay={i * 120}>
-                <div className="group relative overflow-hidden rounded-2xl shadow-lg bg-[#1a2640]">
+                <div className="group relative overflow-hidden rounded-2xl shadow-lg bg-[#133B43]">
                   <div className="relative h-64 overflow-hidden">
                     <Image
                       src={project.src}
@@ -474,10 +474,10 @@ export default function LandingPage() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#133B43]/80 to-transparent" />
                   </div>
                   <div className="p-6">
-                    <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">{project.type}</span>
+                    <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">{project.type}</span>
                     <h3 className="font-display text-xl font-bold text-white mt-1 mb-2">{project.title}</h3>
                     <p className="text-white/60 text-sm leading-relaxed">{project.desc}</p>
                   </div>
@@ -502,7 +502,7 @@ export default function LandingPage() {
               },
             ].map((project, i) => (
               <Reveal key={i} delay={i * 150}>
-                <div className="group relative overflow-hidden rounded-2xl shadow-lg bg-[#1a2640]">
+                <div className="group relative overflow-hidden rounded-2xl shadow-lg bg-[#133B43]">
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={project.src}
@@ -510,10 +510,10 @@ export default function LandingPage() {
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a2e]/80 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#133B43]/80 to-transparent" />
                   </div>
                   <div className="p-6">
-                    <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">{project.type}</span>
+                    <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">{project.type}</span>
                     <h3 className="font-display text-xl font-bold text-white mt-1 mb-2">{project.title}</h3>
                     <p className="text-white/60 text-sm leading-relaxed">{project.desc}</p>
                   </div>
@@ -523,12 +523,12 @@ export default function LandingPage() {
           </div>
           <Reveal>
             <div className="text-center mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Request Your Bespoke Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -542,8 +542,8 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-14">
-              <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">Hospitality Services</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1a2640] mt-3 mb-4">
+              <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">Hospitality Services</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#133B43] mt-3 mb-4">
                 Structures Built for Every Venue
               </h2>
               <p className="text-[#6b7280] text-lg max-w-2xl mx-auto">
@@ -617,12 +617,12 @@ export default function LandingPage() {
               },
             ].map((service, i) => (
               <Reveal key={i} delay={i * 80}>
-                <div className="p-7 rounded-2xl border border-[#e5e0d8] bg-[#f8f6f1] hover:border-[#c9a64a] hover:shadow-lg transition-all duration-300 group h-full">
-                  <div className="w-14 h-14 bg-[#1a2640] rounded-xl flex items-center justify-center text-[#c9a64a] mb-5 group-hover:bg-[#c9a64a] group-hover:text-[#1a2640] transition-all duration-300">
+                <div className="p-7 rounded-2xl border border-[#d1cbc1] bg-[#F0ECE8] hover:border-[#A9C8CD] hover:shadow-lg transition-all duration-300 group h-full">
+                  <div className="w-14 h-14 bg-[#133B43] rounded-xl flex items-center justify-center text-[#A9C8CD] mb-5 group-hover:bg-[#A9C8CD] group-hover:text-[#133B43] transition-all duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="font-display text-xl font-bold text-[#1a2640] mb-1">{service.title}</h3>
-                  <p className="text-[#c9a64a] text-xs font-semibold tracking-wide mb-3">{service.capacity}</p>
+                  <h3 className="font-display text-xl font-bold text-[#133B43] mb-1">{service.title}</h3>
+                  <p className="text-[#A9C8CD] text-xs font-semibold tracking-wide mb-3">{service.capacity}</p>
                   <p
                     className="text-[#6b7280] text-sm leading-relaxed"
                     dangerouslySetInnerHTML={{ __html: service.desc }}
@@ -636,7 +636,7 @@ export default function LandingPage() {
             <div className="text-center mt-12">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-8 py-4 rounded-lg font-bold text-base hover:bg-[#243354] transition-all shadow-md"
+                className="inline-flex items-center gap-2 bg-[#133B43] text-white px-8 py-4 rounded-lg font-bold text-base hover:bg-[#1a4f59] transition-all shadow-md"
               >
                 Discuss Your Project
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
@@ -644,7 +644,7 @@ export default function LandingPage() {
                 </svg>
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -654,7 +654,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── CLIMATE CONTROL USP ───────────────────────────────── */}
-      <section id="climate" className="py-20 bg-[#0f1a2e] relative overflow-hidden">
+      <section id="climate" className="py-20 bg-[#133B43] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image src="/images/hotel-2.jpg" alt="" fill className="object-cover" />
         </div>
@@ -662,12 +662,12 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             <Reveal>
               <div>
-                <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">
+                <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">
                   The Serreva Difference
                 </span>
                 <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-3 mb-6 leading-tight">
                   Engineered for<br />
-                  <span className="text-[#c9a64a]">Any Climate.</span><br />
+                  <span className="text-[#A9C8CD]">Any Climate.</span><br />
                   Any Continent.
                 </h2>
                 <p className="text-white/70 text-lg mb-8 leading-relaxed">
@@ -678,11 +678,11 @@ export default function LandingPage() {
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#e8c97a] transition-all"
+                    className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#c3dce0] transition-all"
                   >
                     Get a Custom Climate Assessment
                   </a>
-                  <a href={PHONE_HREF} className="inline-flex items-center self-center text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                  <a href={PHONE_HREF} className="inline-flex items-center self-center text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
                     or call {PHONE}
                   </a>
                 </div>
@@ -709,9 +709,9 @@ export default function LandingPage() {
                 },
               ].map((feature, i) => (
                 <Reveal key={i} delay={i * 100}>
-                  <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-[#c9a64a]/40 transition-all">
-                    <div className="w-8 h-8 bg-[#c9a64a]/20 rounded-lg flex items-center justify-center mb-3">
-                      <svg className="w-4 h-4 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl p-5 hover:border-[#A9C8CD]/40 transition-all">
+                    <div className="w-8 h-8 bg-[#A9C8CD]/20 rounded-lg flex items-center justify-center mb-3">
+                      <svg className="w-4 h-4 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
                       </svg>
                     </div>
@@ -726,12 +726,12 @@ export default function LandingPage() {
       </section>
 
       {/* ── PROCESS ───────────────────────────────────────────── */}
-      <section id="process" className="py-20 bg-[#f0eae0]">
+      <section id="process" className="py-20 bg-[#E3DFD6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-14">
-              <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">Our Process</span>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1a2640] mt-3 mb-4">
+              <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">Our Process</span>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-[#133B43] mt-3 mb-4">
                 How a Serreva Space<br />Comes to Life
               </h2>
               <p className="text-[#6b7280] text-lg max-w-xl mx-auto">
@@ -771,12 +771,12 @@ export default function LandingPage() {
               <Reveal key={i} delay={i * 100}>
                 <div className="text-center relative">
                   {i < 4 && (
-                    <div className="hidden md:block absolute top-7 left-1/2 w-full h-0.5 bg-[#c9a64a]/20" />
+                    <div className="hidden md:block absolute top-7 left-1/2 w-full h-0.5 bg-[#A9C8CD]/20" />
                   )}
-                  <div className="relative inline-flex items-center justify-center w-14 h-14 bg-[#1a2640] rounded-full mb-4 font-display text-[#c9a64a] font-bold text-lg">
+                  <div className="relative inline-flex items-center justify-center w-14 h-14 bg-[#133B43] rounded-full mb-4 font-display text-[#A9C8CD] font-bold text-lg">
                     {step.step}
                   </div>
-                  <h4 className="font-display text-lg font-bold text-[#1a2640] mb-2">{step.title}</h4>
+                  <h4 className="font-display text-lg font-bold text-[#133B43] mb-2">{step.title}</h4>
                   <p className="text-[#6b7280] text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </Reveal>
@@ -784,12 +784,12 @@ export default function LandingPage() {
           </div>
           <Reveal>
             <div className="text-center mt-12">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Start the Conversation
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -799,11 +799,11 @@ export default function LandingPage() {
       </section>
 
       {/* ── TESTIMONIAL ───────────────────────────────────────── */}
-      <section id="testimonials" className="py-20 bg-[#1a2640]">
+      <section id="testimonials" className="py-20 bg-[#133B43]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-10">
-              <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">Client Experience</span>
+              <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">Client Experience</span>
               <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-3">
                 Built With Precision.<br />Delivered With Care.
               </h2>
@@ -812,13 +812,13 @@ export default function LandingPage() {
 
           <Reveal delay={200}>
             <div className="relative bg-white/5 border border-white/10 rounded-3xl p-10 md:p-14">
-              <div className="absolute top-8 left-10 text-[#c9a64a]/30 font-display text-9xl leading-none select-none">
+              <div className="absolute top-8 left-10 text-[#A9C8CD]/30 font-display text-9xl leading-none select-none">
                 &ldquo;
               </div>
               <div className="relative z-10">
                 <div className="flex gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-5 h-5 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -833,8 +833,8 @@ export default function LandingPage() {
                   elevates the entire property and redefines what&apos;s possible through glass architecture.
                 </blockquote>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#c9a64a]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#c9a64a] font-display font-bold text-lg">H</span>
+                  <div className="w-12 h-12 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#A9C8CD] font-display font-bold text-lg">H</span>
                   </div>
                   <div>
                     <p className="text-white font-semibold">Hospitality Director</p>
@@ -847,10 +847,10 @@ export default function LandingPage() {
 
           <div className="grid md:grid-cols-2 gap-6 mt-6">
             <Reveal delay={100}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#c9a64a]/30 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#A9C8CD]/30 transition-all">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -859,8 +859,8 @@ export default function LandingPage() {
                   &ldquo;The glasshouse Serreva delivered for our rooftop restaurant is simply breathtaking. Guests ask about it constantly — it has become the defining feature of our property. The climate integration is flawless; we operate year-round in what was previously an unusable space.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#c9a64a]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#c9a64a] font-display font-bold">G</span>
+                  <div className="w-10 h-10 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#A9C8CD] font-display font-bold">G</span>
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">General Manager</p>
@@ -870,10 +870,10 @@ export default function LandingPage() {
               </div>
             </Reveal>
             <Reveal delay={200}>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#c9a64a]/30 transition-all">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-[#A9C8CD]/30 transition-all">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
@@ -882,8 +882,8 @@ export default function LandingPage() {
                   &ldquo;We had complex site constraints and an aggressive timeline. Serreva navigated both with remarkable professionalism. Their single-team model — design, engineering, and build under one roof — eliminated the coordination problems we had experienced with other contractors. Delivered on time, on budget, and beyond expectation.&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#c9a64a]/20 rounded-full flex items-center justify-center">
-                    <span className="text-[#c9a64a] font-display font-bold">D</span>
+                  <div className="w-10 h-10 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center">
+                    <span className="text-[#A9C8CD] font-display font-bold">D</span>
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Director of Development</p>
@@ -896,11 +896,11 @@ export default function LandingPage() {
 
           <Reveal>
             <div className="text-center mt-10">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#c9a64a] text-[#1a2640] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#e8c97a] transition-all shadow-md">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#c3dce0] transition-all shadow-md">
                 Request Your Bespoke Proposal
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -924,8 +924,8 @@ export default function LandingPage() {
                     className="object-cover w-full"
                   />
                 </div>
-                <div className="absolute -bottom-6 right-0 sm:-right-6 bg-[#1a2640] rounded-2xl p-6 shadow-2xl max-w-xs">
-                  <p className="text-[#c9a64a] font-display text-3xl font-bold">Only Provider</p>
+                <div className="absolute -bottom-6 right-0 sm:-right-6 bg-[#133B43] rounded-2xl p-6 shadow-2xl max-w-xs">
+                  <p className="text-[#A9C8CD] font-display text-3xl font-bold">Only Provider</p>
                   <p className="text-white/70 text-sm mt-1">
                     Turnkey glasshouse engineering and installation for hospitality
                   </p>
@@ -935,12 +935,12 @@ export default function LandingPage() {
 
             <Reveal delay={200}>
               <div>
-                <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">
+                <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">
                   Why Serreva
                 </span>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1a2640] mt-3 mb-6 leading-tight">
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-[#133B43] mt-3 mb-6 leading-tight">
                   The Only Dedicated<br />
-                  <span className="text-[#c9a64a]">Turnkey Provider</span><br />
+                  <span className="text-[#A9C8CD]">Turnkey Provider</span><br />
                   for Hospitality
                 </h2>
                 <p className="text-[#6b7280] text-lg mb-8 leading-relaxed">
@@ -958,12 +958,12 @@ export default function LandingPage() {
                     "Fully integrated process — zero handoffs, zero quality gaps",
                   ].map((point, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 bg-[#c9a64a]/20 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                        <svg className="w-3 h-3 text-[#c9a64a]" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="w-5 h-5 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
+                        <svg className="w-3 h-3 text-[#A9C8CD]" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
-                      <p className="text-[#1a2640] text-base">{point}</p>
+                      <p className="text-[#133B43] text-base">{point}</p>
                     </div>
                   ))}
                 </div>
@@ -972,12 +972,12 @@ export default function LandingPage() {
           </div>
           <Reveal>
             <div className="text-center mt-12">
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#1a2640] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#243354] transition-all shadow-md">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Request a Custom Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
               <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#c9a64a] transition-colors">
+                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
                   or call {PHONE}
                 </a>
               </div>
@@ -987,17 +987,17 @@ export default function LandingPage() {
       </section>
 
       {/* ── CONTACT / SECOND FORM ─────────────────────────────── */}
-      <section id="contact" className="py-20 bg-[#f8f6f1]">
+      <section id="contact" className="py-20 bg-[#F0ECE8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <Reveal>
               <div>
-                <span className="text-[#c9a64a] text-xs font-bold tracking-widest uppercase">
+                <span className="text-[#A9C8CD] text-xs font-bold tracking-widest uppercase">
                   Start Your Project
                 </span>
-                <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1a2640] mt-3 mb-6 leading-tight">
+                <h2 className="font-display text-4xl md:text-5xl font-bold text-[#133B43] mt-3 mb-6 leading-tight">
                   Let&apos;s Design a Space<br />
-                  <span className="text-[#c9a64a]">That Defines</span><br />
+                  <span className="text-[#A9C8CD]">That Defines</span><br />
                   Your Property
                 </h2>
                 <p className="text-[#6b7280] text-lg mb-8 leading-relaxed">
@@ -1029,17 +1029,17 @@ export default function LandingPage() {
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-4">
-                      <div className="w-11 h-11 bg-[#1a2640] rounded-xl flex items-center justify-center text-[#c9a64a] flex-shrink-0">
+                      <div className="w-11 h-11 bg-[#133B43] rounded-xl flex items-center justify-center text-[#A9C8CD] flex-shrink-0">
                         {item.icon}
                       </div>
                       <div>
                         <p className="text-[#6b7280] text-xs font-medium">{item.label}</p>
                         {item.href ? (
-                          <a href={item.href} className="text-[#1a2640] font-semibold hover:text-[#c9a64a] transition-colors">
+                          <a href={item.href} className="text-[#133B43] font-semibold hover:text-[#A9C8CD] transition-colors">
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-[#1a2640] font-semibold">{item.value}</p>
+                          <p className="text-[#133B43] font-semibold">{item.value}</p>
                         )}
                       </div>
                     </div>
@@ -1056,7 +1056,7 @@ export default function LandingPage() {
       </section>
 
       {/* ── FOOTER ────────────────────────────────────────────── */}
-      <footer className="bg-[#0f1a2e] py-8">
+      <footer className="bg-[#133B43] py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Image src="/images/logo.png" alt="Serreva Glasshouses" width={28} height={28} className="object-contain opacity-70" />
@@ -1079,22 +1079,22 @@ export default function LandingPage() {
           floatingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
         }`}
       >
-        <div className="flex items-center gap-1 bg-[#1a2640] rounded-full shadow-2xl border border-white/10 px-2 py-2">
+        <div className="flex items-center gap-1 bg-[#133B43] rounded-full shadow-2xl border border-white/10 px-2 py-2">
           <a
             href="#contact"
             className="flex items-center gap-2 text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap"
           >
-            <span className="w-2 h-2 rounded-full bg-[#c9a64a] animate-pulse flex-shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-[#A9C8CD] animate-pulse flex-shrink-0" />
             <span className="hidden sm:inline">Request Your Bespoke Proposal</span>
             <span className="sm:hidden">Get Proposal</span>
-            <svg className="w-4 h-4 text-[#c9a64a] flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+            <svg className="w-4 h-4 text-[#A9C8CD] flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </a>
           <div className="w-px h-5 bg-white/20 flex-shrink-0" />
           <a
             href={PHONE_HREF}
-            className="flex items-center gap-2 text-[#c9a64a] px-4 py-2 rounded-full font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap"
+            className="flex items-center gap-2 text-[#A9C8CD] px-4 py-2 rounded-full font-semibold text-sm hover:bg-white/10 transition-all whitespace-nowrap"
           >
             <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
