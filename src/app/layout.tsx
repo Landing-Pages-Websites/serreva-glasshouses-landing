@@ -38,7 +38,7 @@ export default function RootLayout({
         <meta name="mega-site-id" content="03960c4f-3946-4ff5-aab0-50ecda927206" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.MEGA_TAG_CONFIG={siteKey:"sk_6931f04e_f6fe749c348c",siteId:"03960c4f-3946-4ff5-aab0-50ecda927206"};window.API_ENDPOINT="https://optimizer.gomega.ai";window.TRACKING_API_ENDPOINT="https://events-api.gomega.ai";`,
+            __html: `window.MEGA_TAG_CONFIG={siteKey:"sk_6931f04e_f6fe749c348c",gtmId:"GTM-53FP2235",siteId:"03960c4f-3946-4ff5-aab0-50ecda927206"};window.API_ENDPOINT="https://optimizer.gomega.ai";window.TRACKING_API_ENDPOINT="https://events-api.gomega.ai";`,
           }}
         />
         <script
