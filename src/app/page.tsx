@@ -220,7 +220,7 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
 }
 
 export default function LandingPage() {
-  useTracking({ siteKey: "sk_6931f04e_f6fe749c348c", gtmId: "GTM-53FP2235" });
+  useTracking({ siteKey: "sk_mmwan01o_qrxglx1s8ec", gtmId: "GTM-53FP2235" });
 
   const [floatingVisible, setFloatingVisible] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
