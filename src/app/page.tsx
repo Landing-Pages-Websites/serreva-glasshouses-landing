@@ -72,7 +72,10 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
     lastName: "",
     email: "",
     phone: "",
-    projectType: "",
+    hasProperty: "",
+    complementsBusiness: "",
+    hasFinancing: "",
+    projectDetails: "",
   });
   const [phoneError, setPhoneError] = useState("");
 
@@ -185,24 +188,84 @@ function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
         {phoneError && <p className="text-red-400 text-xs mt-1">{phoneError}</p>}
       </div>
 
+      <div className="mb-4">
+        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
+          Do you have land or a property ready for this project? *
+        </p>
+        <div className="flex gap-4">
+          {["Yes", "No"].map((opt) => (
+            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
+              <input
+                type="radio"
+                name={`${id}-hasProperty`}
+                required
+                value={opt}
+                checked={fields.hasProperty === opt}
+                onChange={() => setFields({ ...fields, hasProperty: opt })}
+                className="accent-[#A9C8CD] w-4 h-4"
+              />
+              {opt}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
+          Will this project complement a currently running business or venue? *
+        </p>
+        <div className="flex gap-4">
+          {["Yes", "No"].map((opt) => (
+            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
+              <input
+                type="radio"
+                name={`${id}-complementsBusiness`}
+                required
+                value={opt}
+                checked={fields.complementsBusiness === opt}
+                onChange={() => setFields({ ...fields, complementsBusiness: opt })}
+                className="accent-[#A9C8CD] w-4 h-4"
+              />
+              {opt}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
+          Do you have financing secured? *
+        </p>
+        <div className="flex gap-4">
+          {["Yes", "No"].map((opt) => (
+            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
+              <input
+                type="radio"
+                name={`${id}-hasFinancing`}
+                required
+                value={opt}
+                checked={fields.hasFinancing === opt}
+                onChange={() => setFields({ ...fields, hasFinancing: opt })}
+                className="accent-[#A9C8CD] w-4 h-4"
+              />
+              {opt}
+            </label>
+          ))}
+        </div>
+      </div>
+
       <div className="mb-6">
-        <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>Project Type *</label>
-        <select
-          name="projectType"
-          required
-          value={fields.projectType}
-          onChange={(e) => setFields({ ...fields, projectType: e.target.value })}
-          className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors ${inputBg}`}
-        >
-          <option value="">Select Project Type</option>
-          <option value="hotel-conservatory">Hotel Conservatory</option>
-          <option value="resort-pavilion">Resort Pavilion</option>
-          <option value="event-venue">Event Venue Glasshouse</option>
-          <option value="restaurant-enclosure">Restaurant Enclosure</option>
-          <option value="spa-wellness">Spa &amp; Wellness Structure</option>
-          <option value="atrium">Grand Atrium</option>
-          <option value="other">Other / Not Sure</option>
-        </select>
+        <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>
+          Provide more details on your Glasshouse Project
+        </label>
+        <textarea
+          name="projectDetails"
+          rows={3}
+          placeholder="Tell us about your vision..."
+          value={fields.projectDetails}
+          onChange={(e) => setFields({ ...fields, projectDetails: e.target.value })}
+          className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors resize-vertical ${inputBg}`}
+        />
       </div>
 
       <button

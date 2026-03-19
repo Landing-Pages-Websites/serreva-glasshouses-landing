@@ -105,7 +105,10 @@ interface FormFields {
   lastName: string;
   email: string;
   phone: string;
-  projectType: string;
+  hasProperty: string;
+  complementsBusiness: string;
+  hasFinancing: string;
+  projectDetails: string;
 }
 
 export function useMegaLeadForm() {
@@ -129,7 +132,10 @@ export function useMegaLeadForm() {
           lastName: fields.lastName,
           email: fields.email,
           phone: fields.phone,
-          projectType: fields.projectType,
+          hasProperty: fields.hasProperty,
+          complementsBusiness: fields.complementsBusiness,
+          hasFinancing: fields.hasFinancing,
+          projectDetails: fields.projectDetails,
         },
         url: typeof window !== "undefined" ? window.location.href : "",
         referrer_url: typeof document !== "undefined" ? document.referrer || null : null,
