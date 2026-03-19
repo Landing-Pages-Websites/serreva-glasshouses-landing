@@ -7,8 +7,8 @@ import { useTracking } from "@/hooks/useTracking";
 import { QueryParamPersistence } from "@/components/QueryParamPersistence";
 import { Reveal } from "@/components/Reveal";
 
-const PHONE = "(848) 400-5905";
-const PHONE_HREF = "tel:8484005905";
+const PHONE = "(888) 668-2004";
+const PHONE_HREF = "tel:8886682004";
 
 function formatPhone(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 10);
