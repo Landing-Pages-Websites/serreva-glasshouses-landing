@@ -414,15 +414,13 @@ export default function LandingPage() {
             ))}
           </div>
           <Reveal>
-            <div className="text-center mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#c3dce0] transition-all shadow-md">
                 Start Your Project
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-white/30 text-white/60 rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -522,16 +520,14 @@ export default function LandingPage() {
             ))}
           </div>
           <Reveal>
-            <div className="text-center mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Request Your Bespoke Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-[#d1cbc1] text-[#6b7280] rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -633,7 +629,7 @@ export default function LandingPage() {
           </div>
 
           <Reveal>
-            <div className="text-center mt-12">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 bg-[#133B43] text-white px-8 py-4 rounded-lg font-bold text-base hover:bg-[#1a4f59] transition-all shadow-md"
@@ -643,11 +639,9 @@ export default function LandingPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-[#d1cbc1] text-[#6b7280] rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -675,14 +669,14 @@ export default function LandingPage() {
                   means nothing if guests are uncomfortable. Every Serreva structure includes a fully integrated
                   climate control system — custom-designed for your location and use case.
                 </p>
-                <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="flex flex-wrap items-center gap-4">
                   <a
                     href="#contact"
                     className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-4 rounded-lg font-bold text-base hover:bg-[#c3dce0] transition-all"
                   >
                     Get a Custom Climate Assessment
                   </a>
-                  <a href={PHONE_HREF} className="inline-flex items-center self-center text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
+                  <a href={PHONE_HREF} className="inline-flex items-center border-2 border-white/30 rounded-lg px-6 py-3 text-white/60 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
                     or call {PHONE}
                   </a>
                 </div>
@@ -783,16 +777,14 @@ export default function LandingPage() {
             ))}
           </div>
           <Reveal>
-            <div className="text-center mt-12">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Start the Conversation
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-[#d1cbc1] text-[#6b7280] rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -895,15 +887,13 @@ export default function LandingPage() {
           </div>
 
           <Reveal>
-            <div className="text-center mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-10">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#A9C8CD] text-[#133B43] px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#c3dce0] transition-all shadow-md">
                 Request Your Bespoke Proposal
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-white/60 text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-white/30 text-white/60 rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
@@ -971,16 +961,14 @@ export default function LandingPage() {
             </Reveal>
           </div>
           <Reveal>
-            <div className="text-center mt-12">
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
               <a href="#contact" className="inline-flex items-center gap-2 bg-[#133B43] text-white px-7 py-3.5 rounded-lg font-bold text-sm hover:bg-[#1a4f59] transition-all shadow-md">
                 Request a Custom Proposal
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
               </a>
-              <div className="mt-3">
-                <a href={PHONE_HREF} className="text-[#6b7280] text-sm hover:text-[#A9C8CD] transition-colors">
-                  or call {PHONE}
-                </a>
-              </div>
+              <a href={PHONE_HREF} className="border-2 border-[#d1cbc1] text-[#6b7280] rounded-lg px-6 py-3 text-sm font-semibold hover:text-[#A9C8CD] hover:border-[#A9C8CD] transition-all">
+                or call {PHONE}
+              </a>
             </div>
           </Reveal>
         </div>
