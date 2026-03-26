@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef } from "react";
 
 declare global {
   interface Window {
@@ -21,20 +21,27 @@ interface HubSpotFormProps {
 }
 
 export function HubSpotForm({ id = "hs-form-hero" }: HubSpotFormProps) {
+  const reactId = useId();
+  const targetId = `${id}-${reactId.replace(/:/g, "")}`;
   const containerRef = useRef<HTMLDivElement>(null);
   const created = useRef(false);
 
   useEffect(() => {
     if (created.current) return;
 
+    let cancelled = false;
+
     const createForm = () => {
-      if (!containerRef.current || !window.hbspt) return;
+      if (!containerRef.current || !window.hbspt || cancelled) return;
+
+      containerRef.current.innerHTML = "";
       created.current = true;
+
       window.hbspt.forms.create({
         region: REGION,
         portalId: PORTAL_ID,
         formId: FORM_ID,
-        target: `#${id}`,
+        target: `#${targetId}`,
       });
     };
 
@@ -49,17 +56,24 @@ export function HubSpotForm({ id = "hs-form-hero" }: HubSpotFormProps) {
       'script[src*="js.hsforms.net/forms/embed"]'
     );
     if (existing) {
-      existing.addEventListener("load", createForm);
-      return;
+      if (window.hbspt) {
+        createForm();
+      } else {
+        existing.addEventListener("load", createForm, { once: true });
+      }
+    } else {
+      const script = document.createElement("script");
+      script.src = `https://js.hsforms.net/forms/embed/v2.js`;
+      script.charset = "utf-8";
+      script.async = true;
+      script.onload = createForm;
+      document.head.appendChild(script);
     }
 
-    const script = document.createElement("script");
-    script.src = `https://js.hsforms.net/forms/embed/v2.js`;
-    script.charset = "utf-8";
-    script.async = true;
-    script.onload = createForm;
-    document.head.appendChild(script);
-  }, [id]);
+    return () => {
+      cancelled = true;
+    };
+  }, [targetId]);
 
   return (
     <div className="rounded-2xl p-8 shadow-2xl bg-white border border-[#d1cbc1]">
@@ -69,7 +83,7 @@ export function HubSpotForm({ id = "hs-form-hero" }: HubSpotFormProps) {
       <p className="text-sm mb-6 text-[#6b7280]">
         Tell us about your vision. We respond within 24 hours.
       </p>
-      <div id={id} ref={containerRef} />
+      <div id={targetId} ref={containerRef} />
     </div>
   );
 }
