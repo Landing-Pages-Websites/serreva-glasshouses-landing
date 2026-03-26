@@ -18,10 +18,9 @@ const REGION = "na1";
 
 interface HubSpotFormProps {
   id?: string;
-  dark?: boolean;
 }
 
-export function HubSpotForm({ id = "hs-form-hero", dark = false }: HubSpotFormProps) {
+export function HubSpotForm({ id = "hs-form-hero" }: HubSpotFormProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const created = useRef(false);
 
@@ -62,24 +61,12 @@ export function HubSpotForm({ id = "hs-form-hero", dark = false }: HubSpotFormPr
     document.head.appendChild(script);
   }, [id]);
 
-  const cardBg = dark
-    ? "bg-[#133B43]/90 border border-white/10"
-    : "bg-white border border-[#d1cbc1]";
-
   return (
-    <div className={`rounded-2xl p-8 shadow-2xl ${cardBg}`}>
-      <h3
-        className={`font-display text-2xl font-bold mb-1 ${
-          dark ? "text-white" : "text-[#133B43]"
-        }`}
-      >
+    <div className="rounded-2xl p-8 shadow-2xl bg-white border border-[#d1cbc1]">
+      <h3 className="font-display text-2xl font-bold mb-1 text-[#133B43]">
         Request Your Proposal
       </h3>
-      <p
-        className={`text-sm mb-6 ${
-          dark ? "text-white/60" : "text-[#6b7280]"
-        }`}
-      >
+      <p className="text-sm mb-6 text-[#6b7280]">
         Tell us about your vision. We respond within 24 hours.
       </p>
       <div id={id} ref={containerRef} />
