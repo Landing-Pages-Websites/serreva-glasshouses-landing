@@ -211,7 +211,7 @@ export default function LandingPage() {
             </div>
 
             {/* Right: Form */}
-            <div className="lg:max-w-md w-full">
+            <div className="w-full">
               <HubSpotForm id="hs-form-hero" />
             </div>
           </div>
