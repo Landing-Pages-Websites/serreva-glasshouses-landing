@@ -2,25 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useMegaLeadForm } from "@/hooks/useMegaLeadForm";
+import { HubSpotForm } from "@/components/HubSpotForm";
 import { useTracking } from "@/hooks/useTracking";
 import { QueryParamPersistence } from "@/components/QueryParamPersistence";
 import { Reveal } from "@/components/Reveal";
 
 const PHONE = "(888) 668-2004";
 const PHONE_HREF = "tel:8886682004";
-
-function formatPhone(value: string): string {
-  const digits = value.replace(/\D/g, "").slice(0, 10);
-  if (digits.length === 0) return "";
-  if (digits.length <= 3) return `(${digits}`;
-  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
-}
-
-function isValidPhone(value: string): boolean {
-  return value.replace(/\D/g, "").length === 10;
-}
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
@@ -56,229 +44,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
       {count}
       {suffix}
     </div>
-  );
-}
-
-interface LeadFormProps {
-  id?: string;
-  dark?: boolean;
-}
-
-function LeadForm({ id = "hero-form", dark = false }: LeadFormProps) {
-  const { submit, isSubmitting } = useMegaLeadForm();
-  const [submitted, setSubmitted] = useState(false);
-  const [fields, setFields] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    hasProperty: "",
-    complementsBusiness: "",
-    hasFinancing: "",
-    projectDetails: "",
-  });
-  const [phoneError, setPhoneError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isValidPhone(fields.phone)) {
-      setPhoneError("Please enter a valid 10-digit phone number.");
-      return;
-    }
-    setPhoneError("");
-    try {
-      await submit(fields);
-      setSubmitted(true);
-    } catch {
-      // silent
-    }
-  };
-
-  const cardBg = dark
-    ? "bg-[#133B43]/90 border border-white/10"
-    : "bg-white border border-[#d1cbc1]";
-  const labelColor = dark ? "text-white" : "text-[#133B43]";
-  const inputBg = dark
-    ? "bg-white/10 border-white/20 text-white placeholder-white/50 focus:border-[#A9C8CD]"
-    : "bg-white border-[#d1cbc1] text-[#133B43] placeholder-[#9ca3af] focus:border-[#A9C8CD]";
-
-  if (submitted) {
-    return (
-      <div className={`rounded-2xl p-8 shadow-2xl ${cardBg} text-center`}>
-        <div className="w-16 h-16 bg-[#A9C8CD]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-[#A9C8CD]" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-          </svg>
-        </div>
-        <h4 className={`font-display text-2xl font-bold mb-2 ${dark ? "text-white" : "text-[#133B43]"}`}>
-          Proposal Request Received
-        </h4>
-        <p className={dark ? "text-white/70" : "text-[#6b7280]"}>
-          Our design team will reach out within 24 hours to discuss your vision.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form id={id} onSubmit={handleSubmit} className={`rounded-2xl p-8 shadow-2xl ${cardBg}`}>
-      <h3 className={`font-display text-2xl font-bold mb-1 ${dark ? "text-white" : "text-[#133B43]"}`}>
-        Request Your Proposal
-      </h3>
-      <p className={`text-sm mb-6 ${dark ? "text-white/60" : "text-[#6b7280]"}`}>
-        Tell us about your vision. We respond within 24 hours.
-      </p>
-
-      <div className="grid grid-cols-2 gap-3 mb-3">
-        <div>
-          <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>First Name *</label>
-          <input
-            name="firstName"
-            type="text"
-            required
-            placeholder="First Name"
-            value={fields.firstName}
-            onChange={(e) => setFields({ ...fields, firstName: e.target.value })}
-            className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors ${inputBg}`}
-          />
-        </div>
-        <div>
-          <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>Last Name *</label>
-          <input
-            name="lastName"
-            type="text"
-            required
-            placeholder="Last Name"
-            value={fields.lastName}
-            onChange={(e) => setFields({ ...fields, lastName: e.target.value })}
-            className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors ${inputBg}`}
-          />
-        </div>
-      </div>
-
-      <div className="mb-3">
-        <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>Email *</label>
-        <input
-          name="email"
-          type="email"
-          required
-          placeholder="your@email.com"
-          value={fields.email}
-          onChange={(e) => setFields({ ...fields, email: e.target.value })}
-          className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors ${inputBg}`}
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>Phone *</label>
-        <input
-          name="phone"
-          type="tel"
-          inputMode="numeric"
-          required
-          placeholder="(555) 123-4567"
-          value={fields.phone}
-          onChange={(e) => {
-            setFields({ ...fields, phone: formatPhone(e.target.value) });
-            setPhoneError("");
-          }}
-          pattern="\(\d{3}\) \d{3}-\d{4}"
-          className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors ${inputBg}`}
-        />
-        {phoneError && <p className="text-red-400 text-xs mt-1">{phoneError}</p>}
-      </div>
-
-      <div className="mb-4">
-        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
-          Do you have land or a property ready for this project? *
-        </p>
-        <div className="flex gap-4">
-          {["Yes", "No"].map((opt) => (
-            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
-              <input
-                type="radio"
-                name={`${id}-hasProperty`}
-                required
-                value={opt}
-                checked={fields.hasProperty === opt}
-                onChange={() => setFields({ ...fields, hasProperty: opt })}
-                className="accent-[#A9C8CD] w-4 h-4"
-              />
-              {opt}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
-          Will this project complement a currently running business or venue? *
-        </p>
-        <div className="flex gap-4">
-          {["Yes", "No"].map((opt) => (
-            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
-              <input
-                type="radio"
-                name={`${id}-complementsBusiness`}
-                required
-                value={opt}
-                checked={fields.complementsBusiness === opt}
-                onChange={() => setFields({ ...fields, complementsBusiness: opt })}
-                className="accent-[#A9C8CD] w-4 h-4"
-              />
-              {opt}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <p className={`text-xs font-semibold mb-2 ${labelColor}`}>
-          Do you have financing secured? *
-        </p>
-        <div className="flex gap-4">
-          {["Yes", "No"].map((opt) => (
-            <label key={opt} className={`flex items-center gap-2 cursor-pointer text-sm ${dark ? "text-white/80" : "text-[#133B43]"}`}>
-              <input
-                type="radio"
-                name={`${id}-hasFinancing`}
-                required
-                value={opt}
-                checked={fields.hasFinancing === opt}
-                onChange={() => setFields({ ...fields, hasFinancing: opt })}
-                className="accent-[#A9C8CD] w-4 h-4"
-              />
-              {opt}
-            </label>
-          ))}
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <label className={`block text-xs font-semibold mb-1 ${labelColor}`}>
-          Provide more details on your Glasshouse Project
-        </label>
-        <textarea
-          name="projectDetails"
-          rows={3}
-          placeholder="Tell us about your vision..."
-          value={fields.projectDetails}
-          onChange={(e) => setFields({ ...fields, projectDetails: e.target.value })}
-          className={`w-full border-2 rounded-lg px-4 py-3 text-sm outline-none transition-colors resize-vertical ${inputBg}`}
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-[#133B43] text-white font-bold py-4 rounded-lg text-base hover:bg-[#1a4f59] transition-all disabled:opacity-50 mb-3 tracking-wide"
-      >
-        {isSubmitting ? "Submitting..." : "Request Your Bespoke Proposal"}
-      </button>
-      <p className={`text-center text-xs ${dark ? "text-white/40" : "text-[#9ca3af]"}`}>
-        No commitment required. Response within 24 hours.
-      </p>
-    </form>
   );
 }
 
@@ -447,7 +212,7 @@ export default function LandingPage() {
 
             {/* Right: Form */}
             <div className="lg:max-w-md w-full">
-              <LeadForm id="hero-form" dark />
+              <HubSpotForm id="hs-form-hero" dark />
             </div>
           </div>
         </div>
@@ -1100,7 +865,7 @@ export default function LandingPage() {
             </Reveal>
 
             <Reveal delay={200}>
-              <LeadForm id="contact-form" dark={false} />
+              <HubSpotForm id="hs-form-contact" />
             </Reveal>
           </div>
         </div>
