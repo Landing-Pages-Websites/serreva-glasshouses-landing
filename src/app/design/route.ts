@@ -2,21 +2,25 @@
  * Reverse proxy for /design → mega-landing-platform
  *
  * The /design landing page is served by the shared mega-landing-platform
- * Vercel project.  When we moved the info.serrevaglasshouses.com domain
- * to THIS project, we needed to keep /design alive.  The platform
- * identifies the page by the Host header, so we proxy with the correct
- * Host value.
+ * Vercel project. When we moved the info.serrevaglasshouses.com domain
+ * to THIS project, we needed to keep /design alive.
  *
- * All JS / CSS / image assets on the /design page already use absolute
- * URLs (https://mega-landing-platform.vercel.app/…) so only the HTML
- * document itself needs proxying.
+ * The platform identifies pages by the Host header. We proxy through
+ * landing.gomega.ai (a custom domain on the platform that bypasses
+ * Vercel SSO protection) with Host: info.serrevaglasshouses.com so
+ * the platform serves the correct page.
+ *
+ * All JS / CSS / image assets on the /design page use absolute URLs
+ * (mega-landing-platform.vercel.app, Google Storage, etc.) so only
+ * the HTML document itself needs proxying.
  */
 
 import https from "https";
 import { NextRequest } from "next/server";
 
-const UPSTREAM =
-  "mega-landing-platform-joeadams0s-projects.vercel.app";
+/** Custom domain on mega-landing-platform (bypasses Vercel SSO) */
+const UPSTREAM_HOST = "landing.gomega.ai";
+/** The host the platform uses to identify the Serreva /design page */
 const VIRTUAL_HOST = "info.serrevaglasshouses.com";
 
 export const dynamic = "force-dynamic";
@@ -28,7 +32,7 @@ function proxy(
   return new Promise((resolve, reject) => {
     const req = https.request(
       {
-        hostname: UPSTREAM,
+        hostname: UPSTREAM_HOST,
         path,
         method: "GET",
         headers: {
@@ -36,7 +40,7 @@ function proxy(
           "User-Agent":
             incomingHeaders.get("user-agent") ?? "Vercel-Proxy/1.0",
           Accept: incomingHeaders.get("accept") ?? "text/html",
-          "Accept-Encoding": "identity", // keep it simple — no gzip
+          "Accept-Encoding": "identity",
         },
       },
       (res) => {
@@ -50,7 +54,6 @@ function proxy(
             (res.headers["content-type"] as string) ??
               "text/html; charset=utf-8",
           );
-          // Relay cache-control from upstream
           if (res.headers["cache-control"]) {
             headers.set(
               "Cache-Control",
